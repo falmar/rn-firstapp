@@ -13,7 +13,7 @@ import AlbumList from './src/components/AlbumList'
 class firstapp extends Component {
   render () {
     return (
-      <View>
+      <View style={{flex: 1}}>
         <Header title='Albums' />
         <AlbumList />
       </View>
