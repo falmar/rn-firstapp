@@ -1,1 +1,1 @@
-export const API_URL = 'rallycoding.herokuap.com/api'
+export const API_URL = 'https://rallycoding.herokuapp.com/api'
