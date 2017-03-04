@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react'
 import {View, StyleSheet} from 'react-native'
 
-const Card = ({children}) => {
+const CardSection = ({children}) => {
   const {containerStyle} = styles
 
   return (
@@ -13,19 +13,20 @@ const Card = ({children}) => {
 
 const styles = StyleSheet.create({
   containerStyle: {
-    borderWidth: 1,
-    borderColor: '#ddd',
-    borderBottomWidth: 0,
-    marginRight: 5,
-    marginLeft: 5,
-    marginTop: 5,
-    position: 'relative'
+    borderBottomWidth: 1,
+    borderBottomColor: '#ddd',
 
+    padding: 5,
+
+    position: 'relative',
+
+    justifyContent: 'flex-start',
+    flexDirection: 'row'
   }
 })
 
-Card.propTypes = {
+CardSection.propTypes = {
   children: PropTypes.node
 }
 
-export default Card
+export default CardSection
