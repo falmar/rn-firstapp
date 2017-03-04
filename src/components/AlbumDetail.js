@@ -1,10 +1,11 @@
 import React, {PropTypes} from 'react'
-import {View, Text, StyleSheet, Image} from 'react-native'
+import {View, Text, StyleSheet, Image, Linking} from 'react-native'
 
 import Card from './Card'
 import CardSection from './CardSection'
+import Button from './Button'
 
-const AlbumDetail = ({artist, title, thumbnail_image, image}) => {
+const AlbumDetail = ({artist, title, thumbnail_image, image, url}) => {
   const {textContainerStyle, titleStyle} = headerStyles
   const {thumbnailContainerStyle, thumbnailStyle} = headerStyles
 
@@ -18,6 +19,7 @@ const AlbumDetail = ({artist, title, thumbnail_image, image}) => {
             style={thumbnailStyle}
             source={{uri: thumbnail_image}} />
         </View>
+
         <View style={textContainerStyle}>
           <Text style={titleStyle}>{title}</Text>
           <Text>{artist}</Text>
@@ -28,6 +30,12 @@ const AlbumDetail = ({artist, title, thumbnail_image, image}) => {
         <Image
           style={imageStyle}
           source={{uri: image}} />
+      </CardSection>
+
+      <CardSection>
+        <Button text='Buy Now' onPress={() => {
+          Linking.openURL(url)
+        }} />
       </CardSection>
     </Card>
   )
@@ -52,9 +60,6 @@ const headerStyles = StyleSheet.create({
 })
 
 const bodyStyles = StyleSheet.create({
-  imageContainerStyle: {
-
-  },
   imageStyle: {
     height: 300,
     flex: 1,
@@ -66,7 +71,8 @@ AlbumDetail.propTypes = {
   artist: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   thumbnail_image: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired
+  image: PropTypes.string.isRequired,
+  url: PropTypes.string
 }
 
 export default AlbumDetail
